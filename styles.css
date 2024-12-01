@@ -27,6 +27,13 @@ header ul li a {
     text-decoration: none;
 }
 
+nav ul li a.active {
+    background: #fff;
+    color: #49484a;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 main {
     padding: 2rem;
 }
