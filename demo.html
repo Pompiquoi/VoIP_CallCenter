@@ -10,27 +10,78 @@
 
 <body>
     <header>
+        <h1>Call Center on Asterisk</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Introduction</a></li>
                 <li><a href="asterisk.html">Asterisk</a></li>
                 <li><a href="freepbx.html">FreePBX</a></li>
-                <li><a href="phonerlite.html">PhonerLite</a></li>
-                <li><a href="demo.html" class="active">Demo</a></li>
-                <li><a href="conclusion.html">Conclusion</a></li>
+                <li><a href="softphone.html">Softphone</a></li>
+                <li><a href="demo.html" class="active">Practical Demonstration</a></li>
+                <li><a href="conclusion.html">Conclusion & References</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Practical Demonstration</h1>
-        <p>Watch the video below for a practical demonstration of the VoIP call center in action:</p>
-        <video controls>
+        <h1>Project Demonstration</h1>
+        <p>This page outlines the step-by-step process for implementing the VoIP call center project using FreePBX,
+            Asterisk, and softphones.</p>
+
+        <h3>Step 1: Create a Virtual Machine</h3>
+        <p>
+            After downloading the FreePBX ISO file on the website, we create a virtual machine using VirtualBox.
+        </p>
+
+        <h3>Step 2: Connect to the FreePBX Web Interface</h3>
+        <p>Once FreePBX is installed, access its web-based GUI, using the IP address of the server.</p>
+
+
+        <h3>Step 3: Create Extensions</h3>
+        <p>Extensions are required for softphones and the IVR. Here's what we choose to configure them:</p>
+        <p>We create three SIP account to connect the three softphones and one virtual extension for the IVR. For these
+            extension we need unique number associated with them, here we choosed 201, 202, 203 and 2000</p>
+
+
+        <figure>
+            <img src="images/extensions.png" alt="Extensions Management in FreePBX"
+                style="max-width: 100%; height: auto;">
+            <figcaption>Figure 2: Managing Extensions in FreePBX</figcaption>
+        </figure>
+
+        <h3>Step 4: Configure the Queue and IVR</h3>
+        <p>Set up the call routing and IVR to manage calls effectively:</p>
+        <p>In order to manage serveral calls at the same time, we need to make queues. One for each phone we will be
+            able to call through the IVR, here it's 201 and 202.</p>
+        <p>We also need to make an IVR to manage all the incoming calls to the right service, with a voice to explain
+            and a music while on hold.</p>
+
+        <h3>Step 5: Connect Softphones to the Asterisk Server</h3>
+        <p>Each softphone must be configured to connect to the FreePBX server:</p>
+        <p>To do so, we need the IP address of the server, the extension number and the password associated with the
+            extension.</p>
+        <p>In this project, we used PhonerLite, Yane and MicroSIP as softphones.</p>
+
+        <h3>Final Test</h3>
+        <p>To test the system:
+        <ul>
+            <li>Call the IVR extension (2000) from an external from one of the softphones (201).</li>
+            <li>Use the IVR menu to reach the phone 202</li>
+            <li>Call the IVR again from a different phone (203) and reach the phone 202 again to verify the good
+                functioning of the queue.</li>
+        </ul>
+        </p>
+
+        <h3>Video Demonstration</h3>
+        <p>The video below showcases the proper functioning of the Asterisk server, including the IVR, call queue, and
+            softphone connections:</p>
+
+        <!-- Embedded Video -->
+        <video controls style="width: 100%; max-width: 800px; margin: auto; display: block;">
             <source src="demo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
     </main>
     <footer>
-        <p>&copy; 2024 VoIP Project</p>
+        <p>Camille Forest - Mohamed Bendriouich | VoIP Project</p>
     </footer>
 </body>
 
